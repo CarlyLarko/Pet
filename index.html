@@ -5,9 +5,22 @@
   <title></title>
   <link rel="stylesheet" href="style.css">
   <script src="prototype.js"></script>
+  <!-- <script srd="js.min"></script> -->
 </head>
 
 <body>
   <!-- <script src="js/scripts.js"></script> -->
+  <button class="feed-btn">Feed</button>
+  <div class='feed-cnt'></div>
 </body>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+  $(document).ready(function() {
+  // var instanceOfPet = new Pet();
+
+  $('.feed-btn').on("click", function() {
+      newPet.feed(5);
+  });
+});
+</script>
 </html>

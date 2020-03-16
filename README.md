@@ -22,7 +22,7 @@ Create backend and front end of pet game
 - [ ] hunger - decay 1 per hour
 - [ ] thirst - decay 1 per hour
 - [ ] happiness - decay 5 per hour
-- [ ] age - start at 0 || 5; increments 1 per day
+- [ ] age - start at 0; increments 1 per day
 
 
 #### Basic Reqs

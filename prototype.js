@@ -10,7 +10,12 @@ var Pet = function(name) {
   return obj;
 };
 
-Pet.prototype.generateAge = function() {
-  // increase age by 1 every 24 hours
-  this.age =
+var d = new Date();
+// when feed btn is clicked, adds 5 to hunger
+Pet.prototype.feed = function(food) {
+  if (this.hunger + food <= 100) {
+    this.hunger += food;
+  }
 }
+
+var newPet = Pet('Ginger');
