@@ -16,11 +16,27 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script>
   $(document).ready(function() {
-  // var instanceOfPet = new Pet();
-
-  $('.feed-btn').on("click", function() {
-      newPet.feed(5);
+    var hungerData = {'lastUpdated': (new Date).getTime(), 'value': newPet.hunger}
+    // increment feed by 5 on feed btn click
+  $('.feed-btn').on("click", function(event) {
+    // updates newPet's hunger
+    newPet.feed(5);
+    // get key hunger's value
+    var retrieveHungerValue = localStorage.getItem('hunger');
+    // parses JSON string, constructs object
+    var json = JSON.parse(retrieveHungerValue);
+    // set obj.value to updated hunger
+    json.value =  newPet.hunger;
+    // reset obj.value to new hunger value
+    localStorage.setItem('hunger', JSON.stringify(json))
+      console.log(json)
   });
+  // decrement feed by 5 by time diff
+  // var startTime = (new Date).getTime()
+  // var timeDiff =
+  // var last = event.timeStamp;
+  //   diff = event.timeStamp - last;
+  //   console.log((new Date).getTime()- diff)
 });
 </script>
 </html>

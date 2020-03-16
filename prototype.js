@@ -18,4 +18,10 @@ Pet.prototype.feed = function(food) {
   }
 }
 
+Pet.prototype.decayFeed = function(decay) {
+  if (this.hunger - decay > 0 ) {
+    this.hunger -= decay
+  };
+}
+
 var newPet = Pet('Ginger');
