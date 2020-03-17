@@ -12,8 +12,16 @@ Create backend and front end of pet game
 
 
 #### App (back end)
-- [ ] capture button click and store in local storage
-- [ ] generate time difference from last clicked
+- [x] capture button click and store in local storage - hunger
+- [x] generate time difference from last clicked -hunger
+- [] capture button click and store in local storage - thirst
+- [] generate time difference from last clicked - thirst
+- [] capture button click and store in local storage - happiness
+- [] generate time difference from last clicked -happiness
+- [] capture button click and store in local storage - sleep
+- [] generate time difference from last clicked -sleep
+- [] increment age by day - age
+- [] provide prompt for user to enter in newPet's name
 - [ ] when user comes back to the page, needs levels with decrement
 - [ ] need to be able to call to the local storage
 - [ ] key: need
