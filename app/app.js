@@ -14,10 +14,16 @@ var valueFunc = function(string) {
 $(document).ready(function() {
   // hunger object
   var hungerData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.hunger};
+  // thirst object
+  var thirstData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.thirst};
   // On page load/refresh, see if hunger key is false
   if(!localStorage.getItem('hunger')) {
     // set key value pair
     localStorage.setItem('hunger', JSON.stringify(hungerData));
+  }
+  if(!localStorage.getItem('thirst')) {
+    // set key value pair
+    localStorage.setItem('thirst', JSON.stringify(thirstData));
   }
 
   // calc time difference from page refresh and decays hunger
@@ -41,5 +47,10 @@ $(document).ready(function() {
    // updates newPet's hunger
     newPet.feed(5);
     valueFunc('hunger');
+  });
+  // update newPet thirst on thirst btn click
+  $('.thirst-btn').on("click", function(event) {
+    newPet.water(5);
+    valueFunc('thirst');
   });
 });

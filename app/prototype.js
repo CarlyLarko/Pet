@@ -26,4 +26,10 @@ Pet.prototype.feed = function(food) {
   }
 }
 
+Pet.prototype.water = function(drink) {
+  if (this.thirst + drink <= 100) {
+    this.thirst += drink;
+  }
+}
+
 var newPet = Pet('Ginger');
