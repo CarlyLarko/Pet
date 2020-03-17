@@ -32,4 +32,10 @@ Pet.prototype.water = function(drink) {
   }
 }
 
+Pet.prototype.play = function(fun) {
+  if (this.happiness + fun <= 100) {
+    this.happiness += fun;
+  }
+}
+
 var newPet = Pet('Ginger');
