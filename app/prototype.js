@@ -38,4 +38,10 @@ Pet.prototype.play = function(fun) {
   }
 }
 
+Pet.prototype.snooze = function(z) {
+  if (this.sleep + z <= 100) {
+    this.sleep += z;
+  }
+}
+
 var newPet = Pet('Ginger');
