@@ -11,6 +11,9 @@
 <body>
   <!-- <script src="js/scripts.js"></script> -->
   <button class="feed-btn">Feed</button>
+  <button class="thirst">Water</button>
+  <button class="play">play</button>
+  <button class="sleep">sleep</button>
   <div class='feed-cnt'></div>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -26,18 +29,15 @@ $(document).ready(function() {
     localStorage.setItem('hunger', JSON.stringify(hungerData));
   }
 
-  // calc time difference from page refresh
+  // calc time difference from page refresh and decays hunger
   var decayHunger = function() {
   // get hunger values
   var retrievelastUpdatedValue = window.localStorage.getItem('hunger');
   // parse hunger values
   jsonLastUpdated = JSON.parse(retrievelastUpdatedValue );
   // Should decay every hour, from when key value was created
-  // var decay =  hungerData.lastUpdated - new Date().getMinutes();
-  console.log(jsonLastUpdated.lastUpdated - new Date().getMinutes());
-  // jsonLastUpdated.lastUpdated - new Date().getMinutes();
   var diff = jsonLastUpdated.lastUpdated - new Date().getMinutes();
-  // decay hunger value by decay var
+  // decay hunger value by diff var
     jsonLastUpdated.value += diff;
   // so does not capture time from last feed
   localStorage.setItem('hunger', JSON.stringify(jsonLastUpdated));
@@ -58,17 +58,9 @@ $(document).ready(function() {
     json.value =  newPet.hunger;
     // reset lastUpdated to 0 when btn is clicked;
     json.lastUpdated = new Date().getMinutes();
-    // new Date().getMinutes();
     // reset obj.value to new hunger value
     localStorage.setItem('hunger', JSON.stringify(json));
   });
-
-  // decrement feed by 5 by time diff
-  // var startTime = (new Date).getTime()
-  // var timeDiff =
-  // var last = event.timeStamp;
-  //   diff = event.timeStamp - last;
-  //   console.log((new Date).getTime()- diff)
 });
 </script>
 </html>

@@ -3,11 +3,7 @@ var hungerFunc = function() {
     return 80;
   } else if (window.localStorage['hunger'] !== undefined) {
     return JSON.parse(window.localStorage['hunger'])['value']
-    // - JSON.parse(window.localStorage['hunger'])['lastUpdated'];
   }
-  // if (window.localStorage['lastUpdated'] !== undefined) {
-  //   return JSON.parse(window.localStorage['hunger'])['lastUpdated'];
-  // }
 }
 
 var thirstFunc = function() {
