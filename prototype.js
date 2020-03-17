@@ -1,11 +1,47 @@
+var hungerFunc = function() {
+  if (window.localStorage['hunger'] === undefined) {
+    return 80;
+  } else if (window.localStorage['hunger'] !== undefined) {
+    return JSON.parse(window.localStorage['hunger'])['value']
+    // - JSON.parse(window.localStorage['hunger'])['lastUpdated'];
+  }
+  // if (window.localStorage['lastUpdated'] !== undefined) {
+  //   return JSON.parse(window.localStorage['hunger'])['lastUpdated'];
+  // }
+}
+
+var thirstFunc = function() {
+  if (window.localStorage['thirst'] === undefined) {
+    return 80;
+  } else if (window.localStorage['thirst'] !== undefined) {
+    return JSON.parse(window.localStorage['thirst'])['value'];
+  }
+}
+
+var happinessFunc = function() {
+  if (window.localStorage['happiness'] === undefined) {
+    return 80;
+  } else if (window.localStorage['happiness'] !== undefined) {
+    return JSON.parse(window.localStorage['happiness'])['value'];
+  }
+}
+
+var sleepFunc = function() {
+  if (window.localStorage['sleep'] === undefined) {
+    return 80;
+  } else if (window.localStorage['sleep'] !== undefined) {
+    return JSON.parse(window.localStorage['sleep'])['value'];
+  }
+}
+
 var Pet = function(name) {
   var obj = Object.create(Pet.prototype);
   obj.name = name;
   obj.age = 1;
-  obj.hunger = 80;
-  obj.thirst = 80;
-  obj.happiness = 80;
-  obj.sleep = 80;
+  obj.hunger = hungerFunc();
+  obj.thirst = thirstFunc();
+  obj.happiness = happinessFunc();
+  obj.sleep = sleepFunc();
 
   return obj;
 };
@@ -18,10 +54,10 @@ Pet.prototype.feed = function(food) {
   }
 }
 
-Pet.prototype.decayFeed = function(decay) {
-  if (this.hunger - decay > 0 ) {
-    this.hunger -= decay
-  };
-}
+// Pet.prototype.decayFeed = function(decay) {
+//   if (this.hunger - decay > 0 ) {
+//     this.hunger -= decay;
+//   };
+// }
 
 var newPet = Pet('Ginger');
