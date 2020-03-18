@@ -9,21 +9,18 @@ var storage = function(key) {
 var enterName;
 
 var enterNameFunc = function(name,key) {
-  if (name === undefined && window.localStorage[key] === undefined) {
-    //  var enterName = window.prompt('Please name your pet');
+  if (window.localStorage[key] === undefined) {
     enterName = window.prompt('Please name your pet');
-    //  return enterName;
+    // if user clicked cancel or hit ok without inputting text; set default name to Ginger
+    if (enterName === null || enterName === '') {
+        enterName = "Ginger";
+    }
     return enterName;
   } else if (window.localStorage[key] !== undefined) {
     return JSON.parse(window.localStorage[key])['value'];
   }
-  // else if (name === '') {
-  //   return 'Ginger';
-  // }
 }
 
-// prompt user for pet name
-//  var enterName = window.prompt('Please name your pet');
 
 var Pet = function(name) {
   var obj = Object.create(Pet.prototype);
