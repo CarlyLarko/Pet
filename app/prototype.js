@@ -1,6 +1,8 @@
+// on page refresh, if key is not defined, default value is 80
 var storage = function(key) {
   if (window.localStorage[key] === undefined) {
     return 80;
+    // else, value the value in local storage
   } else if (window.localStorage[key] !== undefined) {
     return JSON.parse(window.localStorage[key])['value'];
   }
@@ -11,7 +13,7 @@ var enterName;
 var enterNameFunc = function(name,key) {
   if (window.localStorage[key] === undefined) {
     enterName = window.prompt('Please name your pet');
-    // if user clicked cancel or hit ok without inputting text; set default name to Ginger
+    // if user clicks cancel or text was not inputted; set default name to Ginger
     if (enterName === null || enterName === '') {
         enterName = "Ginger";
     }
@@ -21,11 +23,20 @@ var enterNameFunc = function(name,key) {
   }
 }
 
+// on page refresh, if key is not defined, default age is 0;
+var ageStorage = function(key) {
+  if (window.localStorage[key] === undefined) {
+    return 0;
+  } else if (window.localStorage[key] !== undefined) {
+    return JSON.parse(window.localStorage[key])['value'];
+  }
+}
+
 
 var Pet = function(name) {
   var obj = Object.create(Pet.prototype);
   obj.name = enterNameFunc(name,'petName');
-  obj.age = 1;
+  obj.age = ageStorage('petAge');
   obj.hunger = storage('hunger');
   obj.thirst = storage('thirst');
   obj.happiness = storage('happiness');
@@ -59,5 +70,11 @@ Pet.prototype.snooze = function(z) {
     this.sleep += z;
   }
 }
+
+// Pet.prototype.aging = function(grow) {
+//   if () {
+
+//   }
+// }
 
 var newPet = Pet(enterName);

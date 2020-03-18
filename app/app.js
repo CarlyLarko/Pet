@@ -9,6 +9,8 @@ $(document).ready(function() {
   var sleepData = {'lastUpdated': new Date().getHours(), 'value': newPet.sleep};
   // name object
   var nameData = {'value': newPet.name};
+  // age object
+  var ageData = {'lastUpdated': new Date().getHours(), 'value': newPet.age};
 
   // On page load/refresh, see if key is false
   var isKeyDefined = function(key,obj) {
@@ -23,6 +25,8 @@ $(document).ready(function() {
   isKeyDefined('happiness',happinessData);
   isKeyDefined('sleep',sleepData);
   isKeyDefined('petName',nameData);
+  isKeyDefined('petAge',ageData);
+
 
 
   var valueFunc = function(string) {
