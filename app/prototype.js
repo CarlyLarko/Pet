@@ -1,7 +1,7 @@
 // on page refresh, if key is not defined, default value is 80
 var storage = function(key) {
   if (window.localStorage[key] === undefined) {
-    return 5;
+    return 80;
     // else, value the value in local storage
   } else if (window.localStorage[key] !== undefined) {
     return JSON.parse(window.localStorage[key])['value'];

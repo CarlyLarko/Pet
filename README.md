@@ -5,9 +5,9 @@ Create backend and front end of pet game
 
 #### UI (front end)
 - [ ] create avatar
-- [ ] create needs buttons - want on the side of each need
+- [x] create needs buttons - want on the side of each need
 - [ ] use C3 to generate graph for needs level
-- [ ] user enters in name for pet
+- [ ] user enters in name for pets
 
 
 
@@ -29,9 +29,9 @@ Create backend and front end of pet game
 - [x] create pet prototype with all the needs, let user enter in name
 - [x] hunger - decay 1 per hour
 - [x] thirst - decay 1 per hour
-- [x] ] happiness - decay 1 per hour
+- [x] happiness - decay 1 per hour
 - [x] age - start at 0; increments 1 per day
-- [ ] when any hunger, thirst, happiness or sleep reach 0, reset all values
+- [x] when any hunger, thirst, happiness or sleep reach 0, reset all values
 
 
 #### Basic Reqs
