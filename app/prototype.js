@@ -44,7 +44,6 @@ var Pet = function(name) {
   return obj;
 };
 
-// var d = new Date();
 // when feed btn is clicked, adds 5 to hunger
 Pet.prototype.feed = function(food) {
   if (this.hunger + food <= 100) {

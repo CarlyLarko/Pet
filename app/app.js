@@ -27,6 +27,51 @@ $(document).ready(function() {
   isKeyDefined('petName',nameData);
   isKeyDefined('petAge',ageData);
 
+  var getData = function(key) {
+    // get key
+    var retrieveData = localStorage.getItem(key);
+    var json = JSON.parse(retrieveData);
+    return json.value;
+  }
+
+  var dataSet = [
+    ['hunger', getData('hunger')],
+    ['thirst', getData('thirst')],
+    ['sleep', getData('sleep')],
+    ['happiness', getData('happiness')]
+  ];
+
+    // **** implement real time data-not on page refresh
+
+  var chart = c3.generate ({
+    bindto: '#chart',
+    data: {
+    type: 'gauge',
+      columns: dataSet,
+      onclick: function (d, i) { console.log("onclick", d, i); },
+      onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+      onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+    },
+    gauge: {
+      width: 120 // for adjusting arc thickness
+    },
+    color: {
+      pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
+        threshold: {
+          values: [30, 60, 90, 100]
+        }
+      },
+      size: {
+        height: 250
+    }
+  });
+  chart.transform('gauge');
+
+  var render = function() {
+    chart.load({columns:dataSet});
+    location.reload();
+  };
+
   // clears localStorage and resets pet if any hunger,thirst,happiness or sleep reach 0
   var clearAndReset = function(key) {
     var retrievepetName = localStorage.getItem('petName');
@@ -51,11 +96,11 @@ $(document).ready(function() {
     var retrieveValue = localStorage.getItem(string);
     // parses JSON string, constructs object
     var json = JSON.parse(retrieveValue);
-    // set obj.value to updated hunger
+    // set obj.value to updated value
     json.value =  newPet[string];
     // reset lastUpdated to 0 when btn is clicked;
     json.lastUpdated = new Date().getMinutes();
-    // reset obj.value to new hunger value
+    // reset obj.value to new value
     localStorage.setItem(string, JSON.stringify(json));
   }
 
@@ -92,20 +137,25 @@ $(document).ready(function() {
    // updates newPet's hunger
     newPet.feed(5);
     valueFunc('hunger');
+    render();
   });
   // update newPet thirst on thirst btn click
   $('.thirst-btn').on("click", function(event) {
     newPet.water(5);
     valueFunc('thirst');
+    render();
   });
   // update newPet happiness on btn click
   $('.play-btn').on("click",function(event) {
     newPet.play(5);
     valueFunc('happiness');
+    render();
   });
   // update newPet sleep on btn click
   $('.sleep-btn').on("click",function(event) {
     newPet.snooze(5);
     valueFunc('sleep');
+    render();
   });
+
 });

@@ -3,20 +3,23 @@
 <html lang="en">
 <head>
   <title></title>
+  <link rel="stylesheet" type="text/css" href="app/style.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.21/c3.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.21/c3.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-  <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 
 <body>
+  <header class="header"></header>
+  <main class="petLocation"></main>
+  <div id="chart"></div>
+  <div class='nav-cnt'>
   <button class="feed-btn">Feed</button>
   <button class="thirst-btn">Water</button>
   <button class="play-btn">play</button>
   <button class="sleep-btn">sleep</button>
-  <div class='feed-cnt'></div>
-  <div id="chart"></div>
+ </div>
 
 </body>
 <script src="app/app.js"></script>
