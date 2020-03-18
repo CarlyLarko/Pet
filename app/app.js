@@ -1,16 +1,16 @@
 $(document).ready(function() {
   // hunger object
-  var hungerData = {'lastUpdated': new Date().getHours(), 'value': newPet.hunger};
+  var hungerData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.hunger};
   // thirst object
-  var thirstData = {'lastUpdated': new Date().getHours(), 'value': newPet.thirst};
+  var thirstData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.thirst};
   // happiness object
-  var happinessData = {'lastUpdated': new Date().getHours(), 'value': newPet.happiness};
+  var happinessData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.happiness};
   // sleep object
-  var sleepData = {'lastUpdated': new Date().getHours(), 'value': newPet.sleep};
+  var sleepData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.sleep};
   // name object
   var nameData = {'value': newPet.name};
   // age object
-  var ageData = {'lastUpdated': new Date().getHours(), 'value': newPet.age};
+  var ageData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.age};
 
   // On page load/refresh, see if key is false
   var isKeyDefined = function(key,obj) {
@@ -27,6 +27,23 @@ $(document).ready(function() {
   isKeyDefined('petName',nameData);
   isKeyDefined('petAge',ageData);
 
+  // clears localStorage and resets pet if any hunger,thirst,happiness or sleep reach 0
+var clearAndReset = function(key) {
+  var retrievepetName = retrieveValue = localStorage.getItem(name);
+  var jsonPetName = JSON.parse(retrievepetName);
+  var retrieveValue = localStorage.getItem(key);
+  var json = JSON.parse(retrieveValue);
+  if (json.value <= 0) {
+    // alert(`Oh no! ${jsonPetName} passed away due to not being taken care of`);
+    window.localStorage.clear();
+    location.reload();
+  }
+}
+
+  clearAndReset('hunger');
+  clearAndReset('thirst');
+  clearAndReset('happiness');
+  clearAndReset('sleep');
 
 
   var valueFunc = function(string) {
@@ -37,7 +54,7 @@ $(document).ready(function() {
     // set obj.value to updated hunger
     json.value =  newPet[string];
     // reset lastUpdated to 0 when btn is clicked;
-    json.lastUpdated = new Date().getHours();
+    json.lastUpdated = new Date().getMinutes();
     // reset obj.value to new hunger value
     localStorage.setItem(string, JSON.stringify(json));
   }
@@ -49,14 +66,14 @@ $(document).ready(function() {
   // parse hunger values
   jsonLastUpdated = JSON.parse(retrievelastUpdatedValue);
   // determine make mins
-    if (jsonLastUpdated.lastUpdated >= new Date().getHours()) {
+    if (jsonLastUpdated.lastUpdated >= new Date().getMinutes()) {
     // Should decay every hour, from when key value was created
-      diff = jsonLastUpdated.lastUpdated - new Date().getHours();
+      diff = jsonLastUpdated.lastUpdated - new Date().getMinutes();
     // decay hunger value by diff var
     jsonLastUpdated.value -= diff;
-    } else if (jsonLastUpdated.lastUpdated < new Date().getHours()) {
+    } else if (jsonLastUpdated.lastUpdated < new Date().getMinutes()) {
       // produce - number
-      diff = jsonLastUpdated.lastUpdated - new Date().getHours();
+      diff = jsonLastUpdated.lastUpdated - new Date().getMinutes();
       jsonLastUpdated.value += diff;
     }
     // so does not capture time from last feed
@@ -67,7 +84,7 @@ $(document).ready(function() {
   decayStatus('thirst');
   decayStatus('happiness');
   decayStatus('sleep');
-  decayStatus('petAge');
+  // decayStatus('petAge');
 
 
   // update newPet hunger on feed btn click

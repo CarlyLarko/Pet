@@ -20,7 +20,7 @@ Create backend and front end of pet game
 - [x] generate time difference from last clicked -happiness
 - [x] capture button click and store in local storage - sleep
 - [x] generate time difference from last clicked -sleep
-- [] increment age by day - age
+- [x] increment age by day - age
 - [x] provide prompt for user to enter in newPet's name
 - [x] when user comes back to the page, needs levels with decrement
 - [x] need to be able to call to the local storage
@@ -30,7 +30,7 @@ Create backend and front end of pet game
 - [x] hunger - decay 1 per hour
 - [x] thirst - decay 1 per hour
 - [x] ] happiness - decay 1 per hour
-- [ ] age - start at 0; increments 1 per day
+- [x] age - start at 0; increments 1 per day
 - [ ] when any hunger, thirst, happiness or sleep reach 0, reset all values
 
 
