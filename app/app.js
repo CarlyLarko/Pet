@@ -67,6 +67,7 @@ $(document).ready(function() {
   decayStatus('thirst');
   decayStatus('happiness');
   decayStatus('sleep');
+  decayStatus('petAge');
 
 
   // update newPet hunger on feed btn click
