@@ -29,12 +29,12 @@ $(document).ready(function() {
 
   // clears localStorage and resets pet if any hunger,thirst,happiness or sleep reach 0
 var clearAndReset = function(key) {
-  var retrievepetName = retrieveValue = localStorage.getItem(name);
+  var retrievepetName = localStorage.getItem('petName');
   var jsonPetName = JSON.parse(retrievepetName);
   var retrieveValue = localStorage.getItem(key);
   var json = JSON.parse(retrieveValue);
   if (json.value <= 0) {
-    // alert(`Oh no! ${jsonPetName} passed away due to not being taken care of`);
+    alert(`Oh no! ${jsonPetName.value} passed away due to not being taken care of`);
     window.localStorage.clear();
     location.reload();
   }
