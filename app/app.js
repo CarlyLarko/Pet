@@ -1,25 +1,29 @@
 $(document).ready(function() {
   // hunger object
-  var hungerData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.hunger};
+  var hungerData = {'lastUpdated': new Date().getHours(), 'value': newPet.hunger};
   // thirst object
-  var thirstData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.thirst};
+  var thirstData = {'lastUpdated': new Date().getHours(), 'value': newPet.thirst};
   // happiness object
-  var happinessData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.happiness};
+  var happinessData = {'lastUpdated': new Date().getHours(), 'value': newPet.happiness};
   // sleep object
-  var sleepData = {'lastUpdated': new Date().getMinutes(), 'value': newPet.sleep};
+  var sleepData = {'lastUpdated': new Date().getHours(), 'value': newPet.sleep};
+  // name object
+  var nameData = {'value': newPet.name};
 
-  // On page load/refresh, see if hunger key is false
-  var isKeyDefined = function(key) {
+  // On page load/refresh, see if key is false
+  var isKeyDefined = function(key,obj) {
     if (!localStorage.getItem(key)) {
     // set key value pair
-    localStorage.setItem(key, JSON.stringify(hungerData));
+    localStorage.setItem(key, JSON.stringify(obj));
     }
   }
 
-  isKeyDefined('hunger');
-  isKeyDefined('thirst');
-  isKeyDefined('happiness');
-  isKeyDefined('sleep');
+  isKeyDefined('hunger',hungerData);
+  isKeyDefined('thirst',thirstData);
+  isKeyDefined('happiness',happinessData);
+  isKeyDefined('sleep',sleepData);
+  isKeyDefined('petName',nameData);
+
 
   var valueFunc = function(string) {
     // get key hunger's value
@@ -29,22 +33,30 @@ $(document).ready(function() {
     // set obj.value to updated hunger
     json.value =  newPet[string];
     // reset lastUpdated to 0 when btn is clicked;
-    json.lastUpdated = new Date().getMinutes();
+    json.lastUpdated = new Date().getHours();
     // reset obj.value to new hunger value
     localStorage.setItem(string, JSON.stringify(json));
   }
 
   var decayStatus = function(key) {
+  var diff;
   // get hunger values
   var retrievelastUpdatedValue = window.localStorage.getItem(key);
   // parse hunger values
   jsonLastUpdated = JSON.parse(retrievelastUpdatedValue);
-  // Should decay every hour, from when key value was created
-  var diff = jsonLastUpdated.lastUpdated - new Date().getMinutes();
-  // decay hunger value by diff var
-  jsonLastUpdated.value += diff;
-  // so does not capture time from last feed
-  localStorage.setItem(key, JSON.stringify(jsonLastUpdated));
+  // determine make mins
+    if (jsonLastUpdated.lastUpdated >= new Date().getHours()) {
+    // Should decay every hour, from when key value was created
+      diff = jsonLastUpdated.lastUpdated - new Date().getHours();
+    // decay hunger value by diff var
+    jsonLastUpdated.value -= diff;
+    } else if (jsonLastUpdated.lastUpdated < new Date().getHours()) {
+      // produce - number
+      diff = jsonLastUpdated.lastUpdated - new Date().getHours();
+      jsonLastUpdated.value += diff;
+    }
+    // so does not capture time from last feed
+    localStorage.setItem(key, JSON.stringify(jsonLastUpdated));
   }
 
   decayStatus('hunger');

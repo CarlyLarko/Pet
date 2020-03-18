@@ -2,13 +2,32 @@ var storage = function(key) {
   if (window.localStorage[key] === undefined) {
     return 80;
   } else if (window.localStorage[key] !== undefined) {
-    return JSON.parse(window.localStorage[key])['value']
+    return JSON.parse(window.localStorage[key])['value'];
   }
 }
 
+var enterName;
+
+var enterNameFunc = function(name,key) {
+  if (name === undefined && window.localStorage[key] === undefined) {
+    //  var enterName = window.prompt('Please name your pet');
+    enterName = window.prompt('Please name your pet');
+    //  return enterName;
+    return enterName;
+  } else if (window.localStorage[key] !== undefined) {
+    return JSON.parse(window.localStorage[key])['value'];
+  }
+  // else if (name === '') {
+  //   return 'Ginger';
+  // }
+}
+
+// prompt user for pet name
+//  var enterName = window.prompt('Please name your pet');
+
 var Pet = function(name) {
   var obj = Object.create(Pet.prototype);
-  obj.name = name;
+  obj.name = enterNameFunc(name,'petName');
   obj.age = 1;
   obj.hunger = storage('hunger');
   obj.thirst = storage('thirst');
@@ -44,4 +63,4 @@ Pet.prototype.snooze = function(z) {
   }
 }
 
-var newPet = Pet('Ginger');
+var newPet = Pet(enterName);

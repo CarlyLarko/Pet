@@ -14,28 +14,28 @@ Create backend and front end of pet game
 #### App (back end)
 - [x] capture button click and store in local storage - hunger
 - [x] generate time difference from last clicked -hunger
-- [] capture button click and store in local storage - thirst
-- [] generate time difference from last clicked - thirst
-- [] capture button click and store in local storage - happiness
-- [] generate time difference from last clicked -happiness
-- [] capture button click and store in local storage - sleep
-- [] generate time difference from last clicked -sleep
+- [x] capture button click and store in local storage - thirst
+- [x] generate time difference from last clicked - thirst
+- [x] capture button click and store in local storage - happiness
+- [x] generate time difference from last clicked -happiness
+- [x] capture button click and store in local storage - sleep
+- [x] generate time difference from last clicked -sleep
 - [] increment age by day - age
 - [] provide prompt for user to enter in newPet's name
 - [ ] when user comes back to the page, needs levels with decrement
-- [ ] need to be able to call to the local storage
-- [ ] key: need
-- [ ] value - object; key = level: num/100 and key lastUpdated: datetime
-- [ ] create pet prototype with all the needs, let user enter in name
-- [ ] hunger - decay 1 per hour
-- [ ] thirst - decay 1 per hour
-- [ ] happiness - decay 5 per hour
+- [x] need to be able to call to the local storage
+- [x] key: need
+- [x] value - object; key = level: num/100 and key lastUpdated: datetime
+- [x] create pet prototype with all the needs, let user enter in name
+- [x] hunger - decay 1 per hour
+- [x] thirst - decay 1 per hour
+- [x] ] happiness - decay 1 per hour
 - [ ] age - start at 0; increments 1 per day
 
 
 #### Basic Reqs
-- [ ] need to store data in local storage
-- [ ] need to be able to figure out time difference
+- [x] need to store data in local storage
+- [x] need to be able to figure out time difference
 
 
 #### advanced
