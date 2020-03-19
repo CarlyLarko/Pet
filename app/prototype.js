@@ -15,7 +15,7 @@ var enterNameFunc = function(name,key) {
     enterName = window.prompt('Please name your pet');
     // if user clicks cancel or text was not inputted; set default name to Ginger
     if (enterName === null || enterName === '') {
-        enterName = "Ginger";
+        enterName = "Abby";
     }
     return enterName;
   } else if (window.localStorage[key] !== undefined) {

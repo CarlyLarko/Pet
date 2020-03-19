@@ -8,7 +8,7 @@ Create backend and front end of pet game
 - [x] create needs buttons - want on the side of each need
 - [x] use C3 to generate graph for needs level
 - [x] user enters in name for pets
-- [ ] display pet name on page
+- [x] display pet name on page
 
 
 

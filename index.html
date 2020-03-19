@@ -3,8 +3,9 @@
 <head>
   <title>Pet Creator</title>
   <link rel="stylesheet" type="text/css" href="app/style.css">
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.21/c3.css">
+  <!-- <script src="animal-avatars.js" defer></script> -->
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.21/c3.js"></script>
 </head>
@@ -13,15 +14,22 @@
   <div class="header">
     <h1 class="heading"></h>
   </div>
-  <main class="petLocation"></main>
-  <div id="chart"></div>
+    <div class="pet-cnt">
+      <img src="https://i.pinimg.com/originals/25/4c/50/254c5040ad92f834d02e7381e76931a5.png" class="grown-Pet">
+      <!-- <img src="https://www.ebgames.ca/Views/Locale/Content/Images/misc/spyroegg/spyroegg.png" class="egg"> -->
+    </div>
+  <div class="chart-ctn">
+    <div id="chart" style="width: 20%; height: 200px;display: inline-block;"></div>
+    <div id="chart1" style="width: 20%; height: 200px;display: inline-block;"></div>
+    <div id="chart2" style="width: 20%; height: 200px;display: inline-block;"></div>
+    <div id="chart3" style="width: 20%; height: 200px;display: inline-block;"></div>
+  </div>
   <div class='nav-cnt'>
-  <button class="feed-btn">Feed</button>
-  <button class="thirst-btn">Water</button>
-  <button class="play-btn">play</button>
-  <button class="sleep-btn">sleep</button>
+    <button class="feed-btn" style="margin: 20px;">Feed</button>
+    <button class="thirst-btn" style="margin: 20px;">Water</button>
+    <button class="play-btn" style="margin: 20px;">play</button>
+    <button class="sleep-btn" style="margin: 20px;">sleep</button>
  </div>
-
 </body>
 <script src="app/app.js"></script>
 <script src="app/prototype.js"></script>
