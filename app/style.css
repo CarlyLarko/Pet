@@ -1,11 +1,16 @@
-.header {
-  background-color: blue;
+body {
+  margin: auto;
+};
+
+.heading {
+  font-family: Apple Chancery, cursive;
 };
 
 .nav-cnt {
   background-color: blue;
-}
+  text-align: center;
+};
 
 #chart {
   height: 30vmax;
-}
+};

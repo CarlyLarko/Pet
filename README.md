@@ -6,8 +6,9 @@ Create backend and front end of pet game
 #### UI (front end)
 - [ ] create avatar
 - [x] create needs buttons - want on the side of each need
-- [ ] use C3 to generate graph for needs level
-- [ ] user enters in name for pets
+- [x] use C3 to generate graph for needs level
+- [x] user enters in name for pets
+- [ ] display pet name on page
 
 
 
@@ -42,6 +43,6 @@ Create backend and front end of pet game
 #### advanced
 - [ ] user able to pick from list of avatars
 - [ ] pet should age with time, avatar should change as it ages
-- [ ] pet can start off an an egg or a seed and grow with time
+- [ ] pet can start off as an egg or a seed and grow with time
 - [ ] user can create multiple pets
 - [ ] have background change per time of day

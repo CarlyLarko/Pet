@@ -34,6 +34,9 @@ $(document).ready(function() {
     return json.value;
   }
 
+  $('.heading').html('Hello ' + getData('petName'));
+    $('.heading').css("font-family", "Anton");
+
   var dataSet = [
     ['hunger', getData('hunger')],
     ['thirst', getData('thirst')],
