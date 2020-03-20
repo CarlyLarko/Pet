@@ -24,10 +24,11 @@ $(document).ready(function() {
   isKeyDefined('thirst',thirstData);
   isKeyDefined('happiness',happinessData);
   isKeyDefined('sleep',sleepData);
-  isKeyDefined('petName',nameData);
   isKeyDefined('petAge',ageData);
+  // isKeyDefined('avatar',avatarData);
+  isKeyDefined('petName',nameData);
 
-  // // used for setData
+  // used for setData
   var getData = function(key) {
     var retrieveData = localStorage.getItem(key);
     var json = JSON.parse(retrieveData);
@@ -38,34 +39,26 @@ $(document).ready(function() {
     ['hunger', getData('hunger')],
     ['thirst', getData('thirst')],
     ['sleep', getData('sleep')],
-    ['happiness', getData('happiness')]
+    ['happiness', getData('happiness')],
   ];
+
 
   var chart = c3.generate ({
     bindto: '#chart',
     data: {
     type: 'gauge',
       columns:
-         [
-          ['hunger', getData('hunger')]
-        ],
-      onclick: function (d, i) {"onclick", d, i; },
-      onmouseover: function (d, i) {"onmouseover", d, i; },
-      onmouseout: function (d, i) {"onmouseout", d, i; }
+         [['hunger', getData('hunger')]],
     },
     gauge: {
       "fullCircle": true,
       "label": {
         "show": false
       }
-      // width: 120 // for adjusting arc thickness
     },
     color: {
-      pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
-        threshold: {
-          values: [30, 60, 90, 100]
-        }
-      }
+      pattern:['orange']
+    }
   });
   // chart.transform('gauge');
   var chart = c3.generate ({
@@ -73,9 +66,6 @@ $(document).ready(function() {
     data: {
     type: 'gauge',
       columns:[['thirst', getData('thirst')]],
-      onclick: function (d, i) {"onclick", d, i; },
-      onmouseover: function (d, i) {"onmouseover", d, i; },
-      onmouseout: function (d, i) {"onmouseout", d, i; }
     },
     gauge: {
       "fullCircle": true,
@@ -84,11 +74,8 @@ $(document).ready(function() {
       }
     },
     color: {
-      pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
-        threshold: {
-          values: [30, 60, 90, 100]
-        }
-      }
+      pattern:['rgb(81, 191, 235)']
+    }
   });
 
   var chart = c3.generate ({
@@ -96,9 +83,6 @@ $(document).ready(function() {
     data: {
     type: 'gauge',
       columns:[['sleep', getData('sleep')]],
-      onclick: function (d, i) {"onclick", d, i; },
-      onmouseover: function (d, i) {"onmouseover", d, i; },
-      onmouseout: function (d, i) {"onmouseout", d, i; }
     },
     gauge: {
       "fullCircle": true,
@@ -107,11 +91,8 @@ $(document).ready(function() {
       }
     },
     color: {
-      pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
-        threshold: {
-          values: [30, 60, 90, 100]
-        }
-      }
+      pattern:['darkblue']
+    }
   });
 
   var chart = c3.generate ({
@@ -119,9 +100,6 @@ $(document).ready(function() {
     data: {
     type: 'gauge',
       columns:[['happiness', getData('happiness')]],
-      onclick: function (d, i) {"onclick", d, i; },
-      onmouseover: function (d, i) {"onmouseover", d, i; },
-      onmouseout: function (d, i) {"onmouseout", d, i; }
     },
     gauge: {
       "fullCircle": true,
@@ -129,12 +107,9 @@ $(document).ready(function() {
         "show": false
       }
     },
-    color: {
-      pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'],
-        threshold: {
-          values: [30, 60, 90, 100]
-        }
-      }
+    // color: {
+    //   pattern:['yellow']
+    // }
   });
 
   var render = function() {
@@ -150,6 +125,7 @@ $(document).ready(function() {
     var json = JSON.parse(retrieveValue);
     if (json.value <= 0) {
       alert(`Oh no! ${jsonPetName.value} passed away due to not being taken care of`);
+      document.getElementById('grown-Pet').src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/White_dot.svg/1200px-White_dot.svg.png"
       window.localStorage.clear();
       location.reload();
     }
