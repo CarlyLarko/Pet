@@ -8,39 +8,17 @@ var storage = function(key) {
   }
 }
 
-
-// var myPix = new Array("animals-02.png","animals-01.png");
-
-// var isTrue;
-
-// function choosePic() {
-// if (isTrue) {
-// var randomNum = Math.floor(Math.random() * myPix.length);
-// var randomAvatar = document.getElementById('grown-Pet').src = myPix[randomNum];
-
-// var retrieveAvatar = window.localStorage.getItem('avatar');
-// var json = JSON.parse(retrieveAvatar);
-// json.value = randomAvatar;
-// localStorage.setItem('avatar',JSON.stringify(json));
-// }
-// }
-
 var enterName;
 
 var enterNameFunc = function(name,key) {
   if (window.localStorage[key] === undefined) {
     enterName = window.prompt('Please name your pet');
-    // isTrue = true;
-    // choosePic();
-    // if user clicks cancel or text was not inputted; set default name to Ginger
+    // if user clicks cancel or text was not inputted; set default name to Abby
     if (enterName === null || enterName === '') {
         enterName = "Abby";
-        // isTrue = true;
-        // choosePic();
     }
     return enterName;
   } else if (window.localStorage[key] !== undefined) {
-    // choosePic();
     return JSON.parse(window.localStorage[key])['value'];
   }
 }

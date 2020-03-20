@@ -42,6 +42,10 @@ $(document).ready(function() {
     ['happiness', getData('happiness')],
   ];
 
+  var render = function(key) {
+    chart.load({columns:dataSet});
+    location.reload();
+  };
 
   var chart = c3.generate ({
     bindto: '#chart',
@@ -107,15 +111,8 @@ $(document).ready(function() {
         "show": false
       }
     },
-    // color: {
-    //   pattern:['yellow']
-    // }
   });
 
-  var render = function() {
-    chart.load({columns:dataSet});
-    location.reload();
-  };
 
   // // clears localStorage and resets pet if any hunger,thirst,happiness or sleep reach 0
   var clearAndReset = function(key) {
@@ -205,6 +202,5 @@ $(document).ready(function() {
   });
 
   // Elements on page
-
   $('.heading').html(getData('petName')).addClass('petName');
 });
